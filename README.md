@@ -1,16 +1,14 @@
 # Linux-2.0
 
-**YouTube Video Script**
 
-**Title: All Types of Linux Commands Explained – Full Beginner’s Guide to Mastering the Linux CLI**
+**Title: Part 1, All Types of Linux Commands Explained – Full Beginner’s Guide to Mastering the Linux CLI**
 
 ---
 
 **🎧 Introduction**
 
-Hey there, welcome to the channel!
 
-Today, we’re diving into the world of **Linux commands**. If you’ve ever felt intimidated by the Linux terminal, don’t worry—you’re not alone. In this video, we’ll break down **all the essential types of Linux commands** in a way that’s simple, clear, and perfect for beginners.
+Today, we’re diving into the world of **Linux commands**. If you’ve ever felt intimidated by the Linux terminal, don’t worry—you’re not alone. In this notes, we’ll break down **all the essential types of Linux commands** in a way that’s simple, clear, and perfect for beginners.
 
 Whether you're preparing for your first IT job, a DevOps role, or just trying to improve your Linux skills, this guide will walk you through the **most important commands** step by step.
 
@@ -274,14 +272,303 @@ Here’s a quick recap:
 
 ---
 
+
+**Title: Linux Commands Part 2 & 3 – Advanced Commands, Scripting, Interview Questions & Labs**
+
+---
+
+**🎧 INTRODUCTION**
+
+Hey everyone, welcome back to our Linux Command Mastery series!
+
+In this special double episode, we’re diving deep into **Part 2 and Part 3** — that means you’re getting a full tour of **advanced Linux commands, bash scripting**, and a bonus pack of **real-world labs and interview questions**.
+
+Whether you're aiming for a DevOps job, preparing for an exam, or just leveling up your command-line confidence — this video is for you.
+
+Let’s jump right in.
+
+---
+
+## 🔧 PART 2: Advanced Linux Commands & Bash Scripting
+
+---
+
+### 🔍 1. Search & Filter Tools
+
+#### a. `grep` – Global Regular Expression Print
+
+Searches through file contents.
+
+```bash
+$ grep "error" logfile.txt
+```
+
+#### b. `awk` – Pattern scanning and processing
+
+Extracts and processes text.
+
+```bash
+$ awk '{print $1}' file.txt
+```
+
+#### c. `sed` – Stream editor
+
+Used to find and replace text.
+
+```bash
+$ sed 's/old/new/g' file.txt
+```
+
+#### d. `cut` – Cuts sections of each line
+
+```bash
+$ cut -d ':' -f1 /etc/passwd
+```
+
+#### e. `find` – Find files by name, type, size, etc.
+
+```bash
+$ find /home -name "*.txt"
+```
+
+#### f. `locate` – Searches faster using a pre-built index
+
+```bash
+$ locate notes.txt
+```
+
+---
+
+### 🔗 2. Pipes, Redirection, and Chaining
+
+#### a. Redirect output to a file
+
+```bash
+$ echo "Hello" > hello.txt
+```
+
+#### b. Append output
+
+```bash
+$ echo "World" >> hello.txt
+```
+
+#### c. Chain commands
+
+```bash
+$ mkdir test && cd test
+```
+
+#### d. Use pipe `|` to link commands
+
+```bash
+$ cat file.txt | grep "error"
+```
+
+#### e. `tee` – Show output AND write to file
+
+```bash
+$ ls -l | tee list.txt
+```
+
+---
+
+### 📜 3. Bash Scripting Basics
+
+#### a. Your first script
+
+```bash
+#!/bin/bash
+echo "Hello, world!"
+```
+
+Save as `hello.sh`, then run:
+
+```bash
+$ chmod +x hello.sh
+$ ./hello.sh
+```
+
+#### b. Variables
+
+```bash
+name="Ali"
+echo "Hello $name"
+```
+
+#### c. Conditions
+
+```bash
+if [ -f "file.txt" ]; then
+  echo "File exists"
+fi
+```
+
+#### d. Loops
+
+```bash
+for i in 1 2 3; do
+  echo "Number $i"
+done
+```
+
+#### e. Arguments
+
+```bash
+#!/bin/bash
+echo "First arg: $1"
+```
+
+---
+
+### 🔄 4. Useful Script Examples
+
+#### a. Backup script
+
+```bash
+#!/bin/bash
+tar -czvf backup_$(date +%F).tar.gz /home/user
+```
+
+#### b. User check script
+
+```bash
+#!/bin/bash
+if id "$1" &>/dev/null; then
+  echo "User exists."
+else
+  echo "User not found."
+fi
+```
+
+#### c. Service monitor script
+
+```bash
+#!/bin/bash
+if systemctl is-active apache2; then
+  echo "Apache is running."
+else
+  echo "Restarting Apache..."
+  systemctl restart apache2
+fi
+```
+
+---
+
+## 🧪 PART 4: Interview Questions, Labs & Projects
+
+---
+
+### ❓ 1. Linux Interview Questions (with examples)
+
+#### Q1. How do you find large files in a directory?
+
+```bash
+$ find / -type f -size +100M
+```
+
+#### Q2. How do you schedule a job?
+
+```bash
+$ crontab -e
+```
+
+Add:
+
+```bash
+0 5 * * * /home/user/backup.sh
+```
+
+#### Q3. Difference between `hard link` and `soft link`?
+
+* Hard Link: Points directly to the file inode.
+* Soft Link: A shortcut (like in Windows).
+
+#### Q4. How do you check disk usage?
+
+```bash
+$ df -h
+$ du -sh *
+```
+
+#### Q5. How do you monitor memory?
+
+```bash
+$ free -m
+```
+
+---
+
+### 🔬 2. Real-Life Practice Labs
+
+#### Lab 1: Create a user and give them sudo access
+
+```bash
+$ adduser devuser
+$ usermod -aG sudo devuser
+```
+
+#### Lab 2: Write a script to archive logs
+
+```bash
+#!/bin/bash
+tar -czf logs_$(date +%F).tar.gz /var/log/*.log
+```
+
+#### Lab 3: Setup a cron job to clear temp folder daily
+
+```bash
+$ crontab -e
+```
+
+```bash
+0 2 * * * rm -rf /tmp/*
+```
+
+---
+
+### 🧩 3. Mini Projects
+
+#### Project 1: Disk Usage Alert Script
+
+Sends alert email if disk > 80%
+
+#### Project 2: Health Check Script
+
+* Checks CPU, memory, disk
+* Logs report to a file
+* Sends warning if thresholds exceed
+
+#### Project 3: Automated Backup System
+
+* Compresses files
+* Stores by date
+* Runs daily with cron
+
+---
+
+### 🧠 Final Takeaways
+
+* Practice by building things
+* Break things. Fix them.
+* Read logs. Explore man pages.
+* Interview prep = daily command use + scripting
+
+> **Quote:** "Linux is not just an OS. It's a toolset. Learn to wield it."
+
+---
+
+**🙏 CLOSING MESSAGE**
+
+Thanks for sticking around for this double feature! If you enjoyed this walkthrough of advanced commands and real-world practice, give the video a like, drop a comment, and subscribe for Part 3 where we’ll cover Linux in DevOps, networking, and automation.
+
+Until next time, keep practicing and keep mastering the terminal.
+
 **🙏 Closing Message**
 
 Thanks so much for watching!
 
-If this video helped you, leave a like, drop a comment, and don’t forget to subscribe for more tutorials on Linux, DevOps, AWS, and cloud computing.
+If this notes helped you, leave a like, drop a comment, and don’t forget to subscribe for more tutorials on Linux, DevOps, AWS, and cloud computing.
 
 Until next time, keep learning and keep building.
 
----
-
-\[End of Part 1 – For 19,000–20,000 words, the full-length script would include each section deeply expanded with more commands, examples, visuals, and CLI outputs. Let me know if you want to expand each section into detailed submodules or create a full course-style breakdown.]
