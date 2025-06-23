@@ -558,10 +558,6 @@ Sends alert email if disk > 80%
 
 ---
 
-**🙏 CLOSING MESSAGE**
-
-Thanks for sticking around for this double feature! If you enjoyed this walkthrough of advanced commands and real-world practice, give the video a like, drop a comment, and subscribe for Part 3 where we’ll cover Linux in DevOps, networking, and automation.
-
 Until next time, keep practicing and keep mastering the terminal.
 
 **🙏 Closing Message**
